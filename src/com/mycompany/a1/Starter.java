@@ -29,7 +29,7 @@ public class Starter {
             return;
         }
         Form hi = new Form("Hi World");
-        hi.addComponent(new Label("Hi World"));
+        hi.addComponent(new Label("HELP ME!"));
         hi.show();
     }
 
