@@ -1,10 +1,13 @@
 package com.mycompany.a1;
 
+import com.codename1.charts.util.ColorUtil;
+import java.util.Random;
+
 public abstract class GameObject {
 	
-	float[] location = new float[2]; // x, y location of the center of the object.
-	int color; 
-	int size;
+	private float[] location = new float[2]; // x, y location of the center of the object.
+	protected static int color = ColorUtil.rgb(0, 0, 0); //Default color value
+	protected int size;
 	
 	public GameObject() {
 		
@@ -23,12 +26,12 @@ public abstract class GameObject {
 		return color;
 	}
 	
-	public abstract void setColor();
+	public abstract void setColor(int rgbColor);  //Should be abstract 
 	
 	public int getSize() {
 		return size;
 	}
 	
-	public abstract void setSize();
-	
+	public abstract void setSize(int s); //Should be abstract 
+		
 }
