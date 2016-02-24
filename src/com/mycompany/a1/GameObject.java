@@ -27,11 +27,14 @@ public abstract class GameObject {
 	 * @param float x, float y
 	 * Does a check to see if it is a valid location
 	 */
-	public void setLocation(float x, float y) {
+	public boolean setLocation(float x, float y) {
 		if( (x >= 0 && y >= 0) && ( x <= 100 && y <= 610) ) {
 			location[0] = x;
 			location[1] = y;
+			return true;
 		}
+		else 
+			return false;
 	}
 	
 	//Set a random location with X min 0, max 1000; y min 0, max 610

@@ -7,6 +7,8 @@ package com.mycompany.a1;
 
 import java.util.Random;
 
+import com.codename1.charts.util.ColorUtil;
+
 public class Cat extends Animal {
 
 	/* (non-Javadoc)
@@ -30,7 +32,7 @@ public class Cat extends Animal {
 		setSpeed(5);
 		
 		//Color never changes. Set a default.
-		setColor(30); //Don't know what 30 is... Check the documentation
+		setColor(ColorUtil.rgb(255, 204, 229)); //Don't know what 30 is... Check the documentation
 
 		//Direction initialized as random. (0 to 359) at instantiation
 		setDirection(rand.nextInt(359) + 0);

@@ -8,6 +8,8 @@ package com.mycompany.a1;
 
 import java.util.Random;
 
+import com.codename1.charts.util.ColorUtil;
+
 public class Dog extends Animal {
 	/* (non-Javadoc)
 	 * @see com.mycompany.a1.Animal#init()
@@ -34,7 +36,7 @@ public class Dog extends Animal {
 		setRandomLocation();
 		
 		//Initialize dogs as a specific color
-		setColor(500); //No idea what 500 is, look at CodeName One documentation later
+		setColor(ColorUtil.rgb(255, 153, 51)); //No idea what 500 is, look at CodeName One documentation later
 		
 		//Speed is range 0-5, starts at 5;
 		setSpeed(5);

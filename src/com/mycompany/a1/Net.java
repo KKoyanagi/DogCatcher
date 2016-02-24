@@ -3,6 +3,7 @@
  */
 package com.mycompany.a1;
 
+import com.codename1.charts.util.ColorUtil;
 
 public class Net extends Catcher {
 
@@ -23,11 +24,12 @@ public class Net extends Catcher {
 		setRandomLocation();
 		
 		//Color of a net never changes. 
-		setColor(40); //Find out the color shit
+		setColor(ColorUtil.rgb(255, 255, 255)); //Find out the color shit
 	}
 	
 	public void setSize(int s){
-		setSize(s);
+		if(s >= 50 && s <= 100)
+			setSize(s);
 	}
 	
 	//Available getter methods to Cat:

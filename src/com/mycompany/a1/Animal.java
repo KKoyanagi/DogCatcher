@@ -5,6 +5,10 @@
  * 
  */
 package com.mycompany.a1;
+import java.lang.Math;
+import java.util.Random;
+
+import com.codename1.contacts.ContactsManager;
 
 public abstract class Animal extends GameObject implements IMoving{
 	/* (non-Javadoc)
@@ -38,6 +42,7 @@ public abstract class Animal extends GameObject implements IMoving{
 	}
 	
 	//Protected so accessible to subclass, but not world.
+	//Animals should not be able to set size after created.
 	protected void setSize(int s){
 		setSize(s);
 	}
@@ -48,7 +53,20 @@ public abstract class Animal extends GameObject implements IMoving{
 	}
 	
 	public void move(){
-		//Implement move here
+		float[] oldLocation = getLocation();
+		Random rand = new Random();
+		int reflection = rand.nextInt(15) + 5; //Change in direction
+		if(rand.nextInt(1) == 0)
+			reflection = reflection * (-1); //negative value half the time
+		int deltaX = (int) Math.cos(90-direction+reflection) * speed;
+		int deltaY = (int) Math.sin(90-direction+reflection) * speed;
+		
+		//Might want to make this a loop later on.
+		if(!setLocation(deltaX + oldLocation[0], deltaY + oldLocation[1])) {
+			deltaX = (int) Math.cos(90-direction-45) * speed;
+			deltaY = (int) Math.sin(90-direction-45) * speed;
+		}
+
 	}
 		
 
