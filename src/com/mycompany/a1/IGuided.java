@@ -6,3 +6,4 @@ public interface IGuided {
 	void moveUp();
 	void moveDown();
 }
+

@@ -214,7 +214,7 @@ public class GameWorld {
 	}
 	
 	public void printMap(){
-		float location[] = float[2];
+		float location[] = new float[2];
 		int color;
 		int size;
 		
@@ -224,10 +224,10 @@ public class GameWorld {
 		size = net.getSize();
 		System.out.println("Net: loc = " + location[0] + "," + location[1] + " color = " + color + " size = " + size );
 		
-		
+		//Print the Animals
 		for(int i = 0; i < gameObjects.size(); i++) {
 			if(gameObjects.get(i) instanceof Animal) {
-				
+				printAnimalObject(gameObjects.get(i));
 			}
 		}
 	}
