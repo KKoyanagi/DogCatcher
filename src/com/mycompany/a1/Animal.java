@@ -61,6 +61,7 @@ public abstract class Animal extends GameObject implements IMoving{
 		int deltaX = (int) Math.cos(90-direction+reflection) * speed;
 		int deltaY = (int) Math.sin(90-direction+reflection) * speed;
 		
+		//TODO MAKE THIS A LOOP
 		//Might want to make this a loop later on.
 		if(!setLocation(deltaX + oldLocation[0], deltaY + oldLocation[1])) {
 			deltaX = (int) Math.cos(90-direction-45) * speed;
