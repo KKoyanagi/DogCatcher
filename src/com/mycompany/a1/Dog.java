@@ -61,7 +61,8 @@ public class Dog extends Animal {
 	public void addScratch(){
 		if(scratches < 5) {
 			scratches++;
-			setColor(ColorUtil.rgb(265, 153, 51)); //Increase the redness, change later
+			int redness = 10 * scratches;
+			setColor(ColorUtil.rgb(255+redness, 153, 51)); //Increase the redness, change later
 			//TODO change the redness as an increment
 			setSpeed(getSpeed()-1);
 		}

@@ -5,6 +5,4 @@ public interface IGuided {
 	void moveRight();
 	void moveUp();
 	void moveDown();
-	void jumpToDog();
-	void jumpToCat();
 }

@@ -1,5 +1,8 @@
 /**
  * Catcher.java 
+ * 
+ * Notes: 
+ * 
  */
 package com.mycompany.a1;
 
@@ -26,26 +29,34 @@ public abstract class Catcher extends GameObject implements IGuided{
 	}
 	
 	public void moveLeft(){
-		
+		float[] location = getLocation();
+		int size = getSize();
+		if((location[0] - size) > 0){
+			setLocation(location[0]-(size/2), location[1]);
+		}
 	}
 	
 	public void moveRight(){
-		
+		float[] location = getLocation();
+		int size = getSize();
+		if((location[0] + size) < 1000){
+			setLocation(location[0]+(size/2), location[1]);
+		}
 	}
 	
 	public void moveUp(){
-		
+		float[] location = getLocation();
+		int size = getSize();
+		if((location[1] + size) < 610){
+			setLocation(location[0], location[1]+(size/2));
+		}
 	}
 	
 	public void moveDown(){
-		
-	}
-	
-	public void jumpToDog(){
-		
-	}
-	
-	public void jumpToCat(){
-		
+		float[] location = getLocation();
+		int size = getSize();
+		if((location[1] - size) > 0){
+			setLocation(location[0], location[1]-(size/2));
+		}
 	}
 }
