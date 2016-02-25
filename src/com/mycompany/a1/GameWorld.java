@@ -8,14 +8,13 @@
 package com.mycompany.a1;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class GameWorld {
 	private int dogsCaptured, catsCaptured, dogsRemaining, catsRemaining, totalScore;
 	private ArrayList<GameObject> gameObjects;
 	private Random rand = new Random();
-	private Net net;
+	private Net net = new Net(); //Initialized with size 100, color black, random location
 	
 	public GameWorld() {
 	}
@@ -33,9 +32,6 @@ public class GameWorld {
 		addCat(new Cat());
 		addCat(new Cat());
 		
-		//Initialized with size 100, color black, random location
-		net = new Net();
-		gameObjects.add(net);
 	}
 	
 	private void addDog(GameObject go){
@@ -115,27 +111,56 @@ public class GameWorld {
 	}
 	
 	public void moveRight(){
-		
+		net.moveRight();
 	}
 	
 	public void moveLeft(){
-		
+		net.moveLeft();
 	}
 	
 	public void moveUp(){
-		
+		net.moveUp();
 	}
 	
 	public void moveDown(){
-		
+		net.moveDown();
 	}
 	
 	public void jumpToDog(){
-		
+		boolean found = false; 
+		//Look for a random location from 0 to size-1
+		int randomLoc = rand.nextInt(gameObjects.size()-1) + 0;
+		float catLoc[] = new float[2];
+						
+		while(!found) {
+			if(gameObjects.get(randomLoc) instanceof Dog){
+				catLoc = gameObjects.get(randomLoc).getLocation();
+				net.setLocation(catLoc[0], catLoc[1]);
+			}
+			else
+			{
+				randomLoc = rand.nextInt(gameObjects.size()-1);
+			}
+		}
 	}
 	
 	public void jumpToCat(){
 		
+		boolean found = false; 
+		//Look for a random location from 0 to size-1
+		int randomLoc = rand.nextInt(gameObjects.size()-1) + 0;
+		float catLoc[] = new float[2];
+						
+		while(!found) {
+			if(gameObjects.get(randomLoc) instanceof Cat){
+				catLoc = gameObjects.get(randomLoc).getLocation();
+				net.setLocation(catLoc[0], catLoc[1]);
+			}
+			else
+			{
+				randomLoc = rand.nextInt(gameObjects.size()-1);
+			}
+		}
 	}
 	
 	public void collision(){
@@ -181,12 +206,56 @@ public class GameWorld {
 	}
 	
 	public void printPoints(){
-		
+		System.out.println("Current Score:            " + totalScore);
+		System.out.println("Number of Dogs Captured:  " + dogsCaptured);
+		System.out.println("Number of Cats Captured:  " + catsCaptured);
+		System.out.println("Number of Dogs Remaining: " + dogsRemaining);
+		System.out.println("Number of Cats Remaining: " + catsRemaining);
 	}
 	
 	public void printMap(){
+		float location[] = float[2];
+		int color;
+		int size;
 		
+		//Print the net
+		location = net.getLocation();
+		color = net.getColor();
+		size = net.getSize();
+		System.out.println("Net: loc = " + location[0] + "," + location[1] + " color = " + color + " size = " + size );
+		
+		
+		for(int i = 0; i < gameObjects.size(); i++) {
+			if(gameObjects.get(i) instanceof Animal) {
+				
+			}
+		}
 	}
 	
+	private void printAnimalObject(GameObject go){
+		float location[] = new float[2];
+		if(go instanceof Dog) {
+			location = go.getLocation();
+			System.out.println("Dog: loc = " + location[0] + "," + location[1] + " color = " 
+			+ go.getColor() + " size = " + go.getSize() + " speed = " + ((Dog)go).getSpeed() + "dir = " 
+			+ ((Dog)go).getDirection() + " scratches = " + ((Dog)go).getScratches() );
+		}
+		else if(go instanceof Cat) {
+			location = go.getLocation();
+			System.out.println("Cat: loc = " + location[0] + "," + location[1] + " color = " 
+			+ go.getColor() + " size = " + go.getSize() + " speed = " + ((Cat)go).getSpeed() + "dir = " 
+			+ ((Cat)go).getDirection()  );
+		}
+	}
 	
 }
+
+
+
+
+
+
+
+
+
+
