@@ -24,7 +24,7 @@ public class Net extends Catcher {
 		setRandomLocation();
 		
 		//Color of a net never changes. 
-		setColor(ColorUtil.rgb(255, 255, 255)); //Find out the color shit
+		setColor(ColorUtil.rgb(255, 255, 255)); 
 	}
 	
 	public void setSize(int s){

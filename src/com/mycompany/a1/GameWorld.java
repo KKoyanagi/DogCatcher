@@ -6,8 +6,8 @@ package com.mycompany.a1;
 import java.util.ArrayList;
 
 public class GameWorld {
-	int dogsCaptured, catsCaptured, dogsRemaining, catsRemaining, totalScore;
-	ArrayList<GameObject> gameObjects;
+	private int dogsCaptured, catsCaptured, dogsRemaining, catsRemaining, totalScore;
+	private ArrayList<GameObject> gameObjects;
 	
 	public GameWorld() {
 	}
@@ -30,7 +30,7 @@ public class GameWorld {
 		addCat(c1);
 		addCat(c2);
 		
-		Net net = new Net();
+		Net net = new Net(); //Initialized with size 100, color black, random location
 		gameObjects.add(net);
 
 		
