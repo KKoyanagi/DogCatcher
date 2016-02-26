@@ -122,13 +122,14 @@ public class GameWorld {
 	public void jumpToDog(){
 		boolean found = false; 
 		//Look for a random location from 0 to size-1
-		int randomLoc = rand.nextInt(gameObjects.size()-1) + 0;
-		float catLoc[] = new float[2];
+		int randomLoc = rand.nextInt(gameObjects.size()-1);
+		float dogLoc[] = new float[2];
 						
 		while(!found) {
 			if(gameObjects.get(randomLoc) instanceof Dog){
-				catLoc = gameObjects.get(randomLoc).getLocation();
-				net.setLocation(catLoc[0], catLoc[1]);
+				dogLoc = gameObjects.get(randomLoc).getLocation();
+				net.setLocation(dogLoc[0], dogLoc[1]);
+				found = true;
 			}
 			else
 			{
@@ -148,6 +149,7 @@ public class GameWorld {
 			if(gameObjects.get(randomLoc) instanceof Cat){
 				catLoc = gameObjects.get(randomLoc).getLocation();
 				net.setLocation(catLoc[0], catLoc[1]);
+				found = true;
 			}
 			else
 			{
@@ -215,8 +217,8 @@ public class GameWorld {
 	
 	public void tick(){
 		for(int i = 0; i < gameObjects.size(); i++) {
-			if(gameObjects.get(i) instanceof Animal) {
-				((Animal) gameObjects.get(i)).move();
+			if(gameObjects.get(i) instanceof IMoving) {
+				((IMoving) gameObjects.get(i)).move();
 			}
 		}
 	}
