@@ -42,7 +42,6 @@ public abstract class GameObject {
 	//Set a random location with X min 0, max 1000; y min 0, max 610
 	public void setRandomLocation(){
 		Random rand = new Random();
-		System.out.println(rand.nextInt(1000) + 0);
 		setLocation(rand.nextInt(1000) , rand.nextInt(610) );
 	}
 	

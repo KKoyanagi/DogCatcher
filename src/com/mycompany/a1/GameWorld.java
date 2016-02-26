@@ -84,6 +84,7 @@ public class GameWorld {
 						//Do I remove the cat? - Assuming I do since the net is "catching" it
 						gameObjects.remove(j);
 						catsRemaining--;
+						System.out.println("A cat has been scooped! -10 pts");
 					}
 					else if(gameObjects.get(j) instanceof Dog){
 						//Check for scratches 
@@ -93,6 +94,7 @@ public class GameWorld {
 						//Remove dog
 						gameObjects.remove(j); 
 						dogsRemaining--;
+						System.out.println("A dog with " + scratches + " scratches has been scooped! " + (10-scratches) + "pts");
 					}
 				}
 			}
@@ -168,19 +170,20 @@ public class GameWorld {
 		if(catCount < 2){
 			System.out.println("A fight cannot occur since there need to be at least 2 cats");
 		}
-		
-		Cat kitten = new Cat();
-		float[] catLoc = new float[2];
-		
-		for(int i = 0; i < gameObjects.size(); i++) {
-			if(gameObjects.get(i) instanceof Cat) {
-				 catLoc = gameObjects.get(i).getLocation();
+		else {
+			Cat kitten = new Cat();
+			float[] catLoc = new float[2];
+			
+			for(int i = 0; i < gameObjects.size(); i++) {
+				if(gameObjects.get(i) instanceof Cat) {
+					 catLoc = gameObjects.get(i).getLocation();
+				}
 			}
+			
+			//Nearby location of a cat.
+			kitten.setLocation(catLoc[0] + 5, catLoc[1] + 5);
+			addCat(kitten);
 		}
-		
-		//Nearby location of a cat.
-		kitten.setLocation(catLoc[0] + 5, catLoc[1] + 5);
-		addCat(kitten);
 	}
 	
 	public void pretend(){
@@ -194,19 +197,21 @@ public class GameWorld {
 		if(catCount == 0){
 			System.out.println("A fight cannot occur since no cats exist");
 		}
-		
-		//Cat scratches the dog. Color of the dog changes. Reduces the dog speed by 1. 
-		boolean found = false; 
-		//Look for a random location from 0 to size-1
-		int randomLoc = rand.nextInt(gameObjects.size()-1) + 0;
-				
-		while(!found) {
-			if(gameObjects.get(randomLoc) instanceof Dog){
-				((Dog) gameObjects.get(randomLoc)).addScratch();
-				found = true;
-			}
-			else {
-				randomLoc = rand.nextInt(gameObjects.size()-1) + 0;
+		else
+		{
+			//Cat scratches the dog. Color of the dog changes. Reduces the dog speed by 1. 
+			boolean found = false; 
+			//Look for a random location from 0 to size-1
+			int randomLoc = rand.nextInt(gameObjects.size()-1) + 0;
+					
+			while(!found) {
+				if(gameObjects.get(randomLoc) instanceof Dog){
+					((Dog) gameObjects.get(randomLoc)).addScratch();
+					found = true;
+				}
+				else {
+					randomLoc = rand.nextInt(gameObjects.size()-1) + 0;
+				}
 			}
 		}
 	}
@@ -236,10 +241,10 @@ public class GameWorld {
 		location = net.getLocation();
 		color = net.getColor();
 		size = net.getSize();
-		System.out.println("Net: loc = " + location[0] + "," + location[1] + " color = " + color + " size = " + size );
+		System.out.println("Net: loc = " + location[0] + "," + location[1] + " color = " + color + " size = " + size + "\n");
 		
 		//Print the Animals
-		System.out.println("Number of Animals: " + gameObjects.size());
+		
 		for(int i = 0; i < gameObjects.size(); i++) {
 			if(gameObjects.get(i) instanceof Animal) {
 				printAnimalObject(gameObjects.get(i));

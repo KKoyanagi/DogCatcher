@@ -1,7 +1,7 @@
 /**
  * Catcher.java 
  * 
- * Notes: move methods need testing
+ * Notes: 
  * 
  */
 package com.mycompany.a1;
@@ -29,34 +29,37 @@ public abstract class Catcher extends GameObject implements IGuided{
 	}
 	
 	public void moveLeft(){
+		//Get location of the catching device
 		float[] location = getLocation();
-		int size = getSize();
-		if((location[0] - size) > 0){
-			setLocation(location[0]-(size/2), location[1]);
+		
+		//Check to see if half the size can be moved.
+		int halfSize = getSize() / 2;
+		if((location[0] - halfSize) > 0){
+			setLocation(location[0]-(halfSize), location[1]);
 		}
 	}
 	
 	public void moveRight(){
 		float[] location = getLocation();
-		int size = getSize();
-		if((location[0] + size) < 1000){
-			setLocation(location[0]+(size/2), location[1]);
+		int halfSize = getSize() / 2;
+		if((location[0] + halfSize) < 1000){
+			setLocation(location[0]+(halfSize), location[1]);
 		}
 	}
 	
 	public void moveUp(){
 		float[] location = getLocation();
-		int size = getSize();
-		if((location[1] + size) < 610){
-			setLocation(location[0], location[1]+(size/2));
+		int halfSize = getSize() / 2;
+		if((location[1] + halfSize) < 610){
+			setLocation(location[0], location[1]+(halfSize));
 		}
 	}
 	
 	public void moveDown(){
 		float[] location = getLocation();
-		int size = getSize();
-		if((location[1] - size) > 0){
-			setLocation(location[0], location[1]-(size/2));
+		int halfSize = getSize() / 2;
+		if((location[1] - halfSize) > 0){
+			setLocation(location[0], location[1]-(halfSize));
 		}
 	}
 }
