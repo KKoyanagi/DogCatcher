@@ -52,19 +52,11 @@ public class GameWorld {
 	}
 	
 	public void expand(){
-		for(int i = 0; i < gameObjects.size(); i++) {
-			if(gameObjects.get(i) instanceof Net) {
-				((Net) gameObjects.get(i)).setSize(100);
-			}
-		}
+		net.setSize(100);
 	}
 	
 	public void contract(){
-		for(int i = 0; i < gameObjects.size(); i++) {
-			if(gameObjects.get(i) instanceof Net) {
-				((Net) gameObjects.get(i)).setSize(50);
-			}
-		}
+		net.setSize(50);
 	}
 	
 	public void scoop(){
