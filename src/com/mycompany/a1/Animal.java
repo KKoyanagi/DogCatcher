@@ -1,14 +1,14 @@
 /**
- * Animal.java
+ * 	Animal.java
  * 
- * Superclass to concrete class of specified animals. (E.g., cat and dog)
+ * 	Superclass to concrete class of specified animals. (E.g., cat and dog)
  * 
+ * 	Notes: 
+ * 		- Still testing the move method, other methods look good.
  */
 package com.mycompany.a1;
 import java.lang.Math;
 import java.util.Random;
-
-import com.codename1.contacts.ContactsManager;
 
 public abstract class Animal extends GameObject implements IMoving{
 	/* (non-Javadoc)
@@ -44,31 +44,38 @@ public abstract class Animal extends GameObject implements IMoving{
 	//Protected so accessible to subclass, but not world.
 	//Animals should not be able to set size after created.
 	protected void setSize(int s){
-		setSize(s);
+		super.setSize(s);
 	}
 	
 	//Protected so accessible to subclass, but not world.
 	protected void setColor(int c){
-		setColor(c);
+		super.setColor(c);
 	}
 	
+	//Move method
+	//TODO test move() method in Animal.java
 	public void move(){
+		//Retrieve old location
 		float[] oldLocation = getLocation();
 		Random rand = new Random();
-		int reflection = rand.nextInt(15) + 5; //Change in direction
-		if(rand.nextInt(1) == 0)
-			reflection = reflection * (-1); //negative value half the time
-		int deltaX = (int) Math.cos(90-direction+reflection) * speed;
-		int deltaY = (int) Math.sin(90-direction+reflection) * speed;
+		//Small reflection in direction between 5 to 15
+		int reflection = rand.nextInt(15) + 5; 
 		
-		//TODO MAKE THIS A LOOP
-		//Might want to make this a loop later on.
-		if(!setLocation(deltaX + oldLocation[0], deltaY + oldLocation[1])) {
+		//50% chance of 1 or 0
+		if(rand.nextInt(1) == 0) { 
+			reflection = reflection * (-1); //negative value half the time
+		}
+		
+		
+		float deltaX = (float) Math.cos(90-direction+reflection) * speed;
+		float deltaY = (float) Math.sin(90-direction+reflection) * speed;
+		
+		boolean indicator = setLocation(deltaX + oldLocation[0], deltaY + oldLocation[1]);
+		if(indicator == false) {
 			deltaX = (int) Math.cos(90-direction-45) * speed;
 			deltaY = (int) Math.sin(90-direction-45) * speed;
+			indicator = setLocation(deltaX + oldLocation[0], deltaY + oldLocation[1]);
 		}
-
 	}
-		
-
+	
 }

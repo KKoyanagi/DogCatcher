@@ -1,7 +1,7 @@
 /**
- * Dog.java
+ * 	Dog.java
  * 
- * Concrete class extending Animal class
+ * 	Concrete class extending Animal class
  * 
  */
 package com.mycompany.a1;
@@ -36,7 +36,7 @@ public class Dog extends Animal {
 		setRandomLocation();
 		
 		//Initialize dogs as a specific color
-		setColor(ColorUtil.rgb(255, 153, 51)); //No idea what 500 is, look at CodeName One documentation later
+		setColor(ColorUtil.rgb(255, 153, 51)); 
 		
 		//Speed is range 0-5, starts at 5;
 		setSpeed(5);
@@ -46,6 +46,7 @@ public class Dog extends Animal {
 	}
 	
 	public void setScratches(int s){
+		//Check to see if s is between 0 and 5.
 		if(s >= 0 && s <= 5)
 			scratches = s;
 	}
@@ -54,15 +55,16 @@ public class Dog extends Animal {
 		return scratches;
 	}
 	
+	
 	public void setColor(int c){
-		setColor(c);
+		super.setColor(c);
 	}
 	
 	public void addScratch(){
 		if(scratches < 5) {
 			scratches++;
-			int redness = 10 * scratches;
-			setColor(ColorUtil.rgb(255+redness, 153, 51)); //Increase the redness, change later
+			int redness = 10 * scratches; //Value to change red RGB value by
+			setColor(ColorUtil.rgb(255-redness, 153, 51)); 
 			//TODO change the redness as an increment
 			setSpeed(getSpeed()-1);
 		}

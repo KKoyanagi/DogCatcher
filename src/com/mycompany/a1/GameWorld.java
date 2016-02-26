@@ -17,11 +17,12 @@ public class GameWorld {
 	private Net net = new Net(); //Initialized with size 100, color black, random location
 	
 	public GameWorld() {
+		gameObjects = new ArrayList<GameObject>();
 	}
 	
 	public void InitLayout() {
 		//Make sure nothing is in the ArrayList and variables
-		gameObjects.clear();
+		//gameObjects.clear();
 		dogsCaptured = catsCaptured = dogsRemaining = catsRemaining = totalScore = 0;
 		
 		//Starts with 3 dogs, 2 cats and 1 net.
@@ -217,7 +218,7 @@ public class GameWorld {
 		float location[] = new float[2];
 		int color;
 		int size;
-		
+				
 		//Print the net
 		location = net.getLocation();
 		color = net.getColor();
@@ -225,6 +226,7 @@ public class GameWorld {
 		System.out.println("Net: loc = " + location[0] + "," + location[1] + " color = " + color + " size = " + size );
 		
 		//Print the Animals
+		System.out.println("Number of Animals: " + gameObjects.size());
 		for(int i = 0; i < gameObjects.size(); i++) {
 			if(gameObjects.get(i) instanceof Animal) {
 				printAnimalObject(gameObjects.get(i));
@@ -232,18 +234,19 @@ public class GameWorld {
 		}
 	}
 	
+	//Method to control the format of the Animal outputs produced in the console.
 	private void printAnimalObject(GameObject go){
 		float location[] = new float[2];
 		if(go instanceof Dog) {
 			location = go.getLocation();
 			System.out.println("Dog: loc = " + location[0] + "," + location[1] + " color = " 
-			+ go.getColor() + " size = " + go.getSize() + " speed = " + ((Dog)go).getSpeed() + "dir = " 
+			+ go.getColor() + " size = " + go.getSize() + " speed = " + ((Dog)go).getSpeed() + " dir = " 
 			+ ((Dog)go).getDirection() + " scratches = " + ((Dog)go).getScratches() );
 		}
 		else if(go instanceof Cat) {
 			location = go.getLocation();
 			System.out.println("Cat: loc = " + location[0] + "," + location[1] + " color = " 
-			+ go.getColor() + " size = " + go.getSize() + " speed = " + ((Cat)go).getSpeed() + "dir = " 
+			+ go.getColor() + " size = " + go.getSize() + " speed = " + ((Cat)go).getSpeed() + " dir = " 
 			+ ((Cat)go).getDirection()  );
 		}
 	}

@@ -1,5 +1,5 @@
 /**
- * Net.java
+ * 	Net.java
  */
 package com.mycompany.a1;
 
@@ -27,9 +27,11 @@ public class Net extends Catcher {
 		setColor(ColorUtil.rgb(255, 255, 255)); 
 	}
 	
+	
 	public void setSize(int s){
-		if(s >= 50 && s <= 100)
-			setSize(s);
+		if(s >= 50 && s <= 100){
+			super.setSize(s);
+		}
 	}
 	
 	//Available getter methods to Cat:

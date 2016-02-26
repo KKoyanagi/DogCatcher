@@ -1,7 +1,7 @@
 /**
  * Catcher.java 
  * 
- * Notes: 
+ * Notes: move methods need testing
  * 
  */
 package com.mycompany.a1;
@@ -20,12 +20,12 @@ public abstract class Catcher extends GameObject implements IGuided{
 
 	//Protected so accessible to subclass, but not world.
 	protected void setSize(int s){
-		setSize(s);
+		super.setSize(s);
 	}
 	
 	//Protected so accessible to subclass, but not world.
 	protected void setColor(int c){
-		setColor(c);
+		super.setColor(c);
 	}
 	
 	public void moveLeft(){

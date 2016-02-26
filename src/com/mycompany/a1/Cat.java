@@ -1,7 +1,7 @@
 /**
- * Cat.java
+ * 	Cat.java
  * 
- * Concrete class extending Animal class
+ * 	Concrete class extending Animal class
  */
 package com.mycompany.a1;
 

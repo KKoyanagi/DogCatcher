@@ -1,5 +1,10 @@
-package com.mycompany.a1;
+/*
+ * 	Starter.java
+ * 
+ * 	Starts a game.
+ */
 
+package com.mycompany.a1;
 
 import com.codename1.io.Log;
 import com.codename1.ui.Display;
@@ -28,9 +33,7 @@ public class Starter {
             current.show();
             return;
         }
-        Form hi = new Form("Hi World");
-        hi.addComponent(new Label("HELP ME!"));
-        hi.show();
+        new Game();
     }
 
     public void stop() {

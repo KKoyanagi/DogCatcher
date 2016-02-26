@@ -1,7 +1,9 @@
 /*
- * GameObject.java
+ * 	GameObject.java
  * 
- * Abstract class with Animal and Catcher implementing it.
+ * 	Abstract class with Animal and Catcher implementing it.
+ * 
+ * 	Notes:
  * 
  */
 
@@ -13,9 +15,8 @@ import java.util.Random;
 public abstract class GameObject {
 	
 	//All objects have Location, Color and Size.
-	
 	private float[] location = new float[2]; // x, y location of the center of the object.
-	private static int color = ColorUtil.rgb(0, 0, 0); //Default color value (black)
+	private int color = ColorUtil.rgb(0, 0, 0); //Default color value (black)
 	private int size; //Size of the object
 	
 	public GameObject() {
@@ -26,9 +27,10 @@ public abstract class GameObject {
 	/*
 	 * @param float x, float y
 	 * Does a check to see if it is a valid location
+	 * @returns true if valid location, false if invalid
 	 */
 	public boolean setLocation(float x, float y) {
-		if( (x >= 0 && y >= 0) && ( x <= 100 && y <= 610) ) {
+		if( (x >= 0 && y >= 0) && ( x <= 1000 && y <= 610) ) {
 			location[0] = x;
 			location[1] = y;
 			return true;
@@ -40,7 +42,8 @@ public abstract class GameObject {
 	//Set a random location with X min 0, max 1000; y min 0, max 610
 	public void setRandomLocation(){
 		Random rand = new Random();
-		setLocation(rand.nextInt(1000) + 0, rand.nextInt(610) + 0);
+		System.out.println(rand.nextInt(1000) + 0);
+		setLocation(rand.nextInt(1000) , rand.nextInt(610) );
 	}
 	
 	public float[] getLocation() {
