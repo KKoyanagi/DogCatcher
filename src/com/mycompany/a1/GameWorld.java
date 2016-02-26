@@ -167,6 +167,18 @@ public class GameWorld {
 	public void collision(){
 		//Collision is simulated. Two cats run into each other and a kitten is produced.
 		//A new cat is created in a nearby location to one of its parents. 
+		
+		//Do a check first to see if there is at least 2 cats.
+		int catCount = 0;
+		for(int i = 0; i < gameObjects.size(); i++){
+			if(gameObjects.get(i) instanceof Cat){
+				catCount++;
+			}
+		}
+		if(catCount < 2){
+			System.out.println("A fight cannot occur since there need to be at least 2 cats");
+		}
+		
 		Cat kitten = new Cat();
 		float[] catLoc = new float[2];
 		
@@ -182,6 +194,17 @@ public class GameWorld {
 	}
 	
 	public void pretend(){
+		//Do a check first to see if there is at least 1 cat.
+		int catCount = 0;
+		for(int i = 0; i < gameObjects.size(); i++){
+			if(gameObjects.get(i) instanceof Cat){
+				catCount++;
+			}
+		}
+		if(catCount == 0){
+			System.out.println("A fight cannot occur since no cats exist");
+		}
+		
 		//Cat scratches the dog. Color of the dog changes. Reduces the dog speed by 1. 
 		boolean found = false; 
 		//Look for a random location from 0 to size-1
