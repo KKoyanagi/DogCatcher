@@ -2,8 +2,7 @@
  * GameWorld.java
  * 
  * Notes:
- * 	I don't actually have to have the net be in the ArrayList of GameObjects since there will
- * 		only ever be one net. 
+ * 		 
  */
 package com.mycompany.a1;
 
@@ -63,21 +62,19 @@ public class GameWorld {
 		//Rules: Catching an unscratched dog is worth 10 points
 		//		 	one scratch deducts one point from 10
 		//		 Catching a cat deducts 10 points.
-		float[] netLoc = new float[2];
-		int netSize = 0;
-		for(int i = 0; i < gameObjects.size(); i++) {
-			if(gameObjects.get(i) instanceof Net) {
-				//Probably doesn't need to be casted to Net
-				netLoc = gameObjects.get(i).getLocation(); 
-				netSize = gameObjects.get(i).getSize();
-			}
-		}
+		
+		//Get the locaiton and size of the net
+		float[] netLoc = net.getLocation();
+		int netSize = net.getSize();
+		
 		
 		float[] animalLoc;
-		for(int j = 0; j < gameObjects.size(); j++) {
-			//Check the x field. 
-			animalLoc = gameObjects.get(j).getLocation();
 		
+		//Check to see if there's anything in the net.
+		for(int j = 0; j < gameObjects.size(); j++) {
+			 
+			animalLoc = gameObjects.get(j).getLocation();
+			//Check the x field.
 			if((animalLoc[0] <= (netLoc[0] + (netSize/2))) && (animalLoc[0] >= (netLoc[0] - (netSize/2)))){
 				//Check y field.
 				if((animalLoc[1] <= (netLoc[1] + (netSize/2))) && (animalLoc[1] >= (netLoc[1] - (netSize/2)))){
@@ -139,7 +136,6 @@ public class GameWorld {
 	}
 	
 	public void jumpToCat(){
-		
 		boolean found = false; 
 		//Look for a random location from 0 to size-1
 		int randomLoc = rand.nextInt(gameObjects.size()-1) + 0;

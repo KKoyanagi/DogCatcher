@@ -42,59 +42,59 @@ public class Game extends Form {
 				myTextField.clear();
 				switch(sCommand.charAt(0)) {
 				case 'e':
-					System.out.println("=== 'e' command entered: ===");
+					System.out.println("=== Expand Net Command Entered ===");
 					gw.expand();
 					break;
 				case 'c':
-					System.out.println("=== 'c' command entered: ===");
+					System.out.println("=== Contract Net Command Entered ===");
 					gw.contract();
 					break;
 				case 's':
-					System.out.println("=== 's' command entered: ===");
+					System.out.println("=== Scoop Net Command Entered ===");
 					gw.scoop();
 					break;
 				case 'r':
-					System.out.println("=== 'r' command entered: ===");
+					System.out.println("=== Move Net Right Command Entered ===");
 					gw.moveRight();
 					break;
 				case 'l':
-					System.out.println("=== 'l' command entered: ===");
+					System.out.println("=== Move Net Left Command Entered ===");
 					gw.moveLeft();
 					break;
 				case 'u':
-					System.out.println("=== 'u' command entered: ===");
+					System.out.println("=== Move Net Up Command Entered ===");
 					gw.moveUp();
 					break;
 				case 'd':
-					System.out.println("=== 'd' command entered: ===");
+					System.out.println("=== Move Net Down Command Entered ===");
 					gw.moveDown();
 					break;
 				case 'o':
-					System.out.println("=== 'o' command entered: ===");
+					System.out.println("=== Net Jump to Dog Command Entered ===");
 					gw.jumpToDog();
 					break;
 				case 'a':
-					System.out.println("=== 'a' command entered: ===");
+					System.out.println("=== Net Jump to Cat Command Entered ===");
 					gw.jumpToCat();
 					break;
 				case 'k':
-					System.out.println("=== 'k' command entered: ===");
+					System.out.println("=== Pretend Collision Command Entered ===");
 					gw.collision();
 					break;
 				case 'f':
-					System.out.println("=== 'f' command entered: ===");
+					System.out.println("=== Pretend Fight Command Entered ===");
 					gw.pretend();
 					break;
 				case 't':
-					System.out.println("=== 't' command entered: ===");
+					System.out.println("=== Tick Command Entered ===");
 					gw.tick();
 					break;
 				case 'p':
-					System.out.println("=== 'p' command entered: ===");
+					System.out.println("===     Points     ===");
 					gw.printPoints();
 					break;
 				case 'm':
-					System.out.println("=== 'm' command entered: ===");
+					System.out.println("===       Map      ===");
 					gw.printMap();
 					break;
 				case 'q':
