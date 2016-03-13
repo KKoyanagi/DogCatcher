@@ -38,6 +38,10 @@ public class Cat extends Animal {
 		setDirection(rand.nextInt(359) + 0);
 	}
 	
+	public void setColor(int rgbColor){
+		//Do nothing
+	}
+	
 	//Available getter methods to Cat:
 	//getColor()
 	//getLocation

@@ -34,6 +34,10 @@ public class Net extends Catcher {
 		}
 	}
 	
+	public void setColor(int rgbColor){
+		//Do nothing
+	}
+	
 	//Available getter methods to Cat:
 			//getColor()
 			//getLocation
